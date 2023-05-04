@@ -27,13 +27,20 @@ public class Playlist {
     }
 
     public void goToPreviousSong() {
+        if(currentSong > 0) currentSong--;
+        else currentSong = playlist.length - 1;
     }
 
     public void goToNextSong() {
+        if(currentSong < playlist.length - 1) currentSong++;
+        else currentSong = 0;
     }
 
     public Integer getMinimumNumberOfStepsBetween(Integer currentIndex, String desiredSong) {
-        return null;
+        currentSong = currentIndex;
+        while(!getCurrentSelection().equals(desiredSong))
+            goToNextSong();
+        return Math.abs(currentIndex - currentSong);
     }
 
     public Integer getNumberOfStepsBetween(Integer currentIndex, String desiredSong, Runnable directionMutator) {
