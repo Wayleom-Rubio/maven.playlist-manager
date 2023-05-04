@@ -4,13 +4,19 @@ package com.github.curriculeon;
 import java.util.List;
 
 public class PlaylistManager {
+
+    private Playlist playlist;
+
     public PlaylistManager(String[] songs) {
+        setPlaylist(songs);
     }
 
     public PlaylistManager(List<String> songs) {
+        setPlaylist(songs.toArray(new String[0]));
     }
 
     public PlaylistManager() {
+        setPlaylist(new Playlist(new String[0]));
     }
 
     public Playlist getPlaylist() {
