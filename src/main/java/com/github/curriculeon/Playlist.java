@@ -44,14 +44,20 @@ public class Playlist {
     }
 
     public Integer getNumberOfStepsBetween(Integer currentIndex, String desiredSong, Runnable directionMutator) {
-        return null;
+        currentSong = currentIndex;
+        int tracker = 0;
+        while(!getCurrentSelection().equals(desiredSong)){
+            tracker++;
+            directionMutator.run();
+        }
+        return tracker;
     }
 
     public Integer getForwardNumberOfStepsBetween(Integer currentIndex, String desiredSong) {
-        return null;
+        return getNumberOfStepsBetween(currentIndex,desiredSong,this::goToNextSong);
+
     }
 
     public Integer getBackwardNumberOfStepsBetween(Integer currentIndex, String desiredSong) {
-        return null;
-    }
+        return getNumberOfStepsBetween(currentIndex,desiredSong,this::goToPreviousSong);    }
 }
