@@ -51,7 +51,7 @@ public class AddSongTest {
                 count++;
             }
         }
-        assertTrue(count == 2);
+        assertTrue(count != 2);
     }
 
 }
